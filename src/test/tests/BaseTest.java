@@ -1,5 +1,3 @@
-package tests;
-
 import driver.Driver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;

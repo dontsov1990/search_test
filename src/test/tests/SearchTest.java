@@ -2,7 +2,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HomePage;
 import pages.SearchResultPage;
-import tests.BaseTest;
+
 import java.util.List;
 import static org.testng.Assert.*;
 
