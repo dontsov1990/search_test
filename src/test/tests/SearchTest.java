@@ -22,9 +22,9 @@ public class SearchTest extends BaseTest {
         HomePage homePage = new HomePage(driver.get());
         homePage.enterSearchText("automation");
         homePage.clickSearchBtn();
+        SearchResultPage resultPage = new SearchResultPage(driver.get());
         boolean result = false;
         for (int i = 1; i <=5; i++) {
-            SearchResultPage resultPage = new SearchResultPage(driver.get());
             resultPage.openPageByNumber(i);
             List<String> links = resultPage.getResultLinks();
             for (String link: links) {
