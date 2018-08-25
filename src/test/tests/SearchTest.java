@@ -22,15 +22,18 @@ public class SearchTest extends BaseTest {
         HomePage homePage = new HomePage(driver.get());
         homePage.enterSearchText("automation");
         homePage.clickSearchBtn();
-        SearchResultPage resultPage= new SearchResultPage(driver.get());
-        List<String> links = resultPage.getResultLinks();
         boolean result = false;
-        for (int i = 0; i < 5; i++) {
-            if(links.get(i).contains("testautomationday.com")) {
-                result = true;
-                break;
+        for (int i = 2; i <=5; i++) {
+            SearchResultPage resultPage = new SearchResultPage(driver.get());
+            List<String> links = resultPage.getResultLinks();
+            for (String link: links) {
+                if (link.contains("testautomationday.com")) {
+                    result = true;
+                    break;
+                }
             }
+            resultPage.openPageByNumber(i);
         }
-        assertTrue(result, "\"testautomationday.com\" domain present in first 5 search results");
+        assertTrue(result, "\"testautomationday.com\" domain present in links of first 5 search result pages");
     }
 }
