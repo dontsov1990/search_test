@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test Suite">
+
+    <parameter name="env" value="https://google.com"/>
+    <parameter name="browser" value="firefox"/>
+    <parameter name="width" value="1980"/>
+    <parameter name="height" value="1200"/>
+
+    <test name="Google test" parallel="methods" thread-count="2">
+        <classes>
+            <class name="SearchTest"/>
+        </classes>
+    </test>
+
+</suite>
