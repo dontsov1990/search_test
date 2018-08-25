@@ -1,5 +1,4 @@
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.HomePage;
 import pages.SearchResultPage;
 
@@ -15,7 +14,7 @@ public class SearchTest extends BaseTest {
         homePage.clickSearchBtn();
         SearchResultPage resultPage= new SearchResultPage(driver.get());
         resultPage.clickLinkByNumber(1);
-        assertTrue(driver.get().getTitle().contains("automation"), "Expected title contains: \"automation\", Actual title: " + driver.get().getTitle());
+        assertTrue(driver.get().getTitle().contains("automation"), "First search result page title contains: \"automation\"");
     }
 
     @Test
@@ -25,10 +24,13 @@ public class SearchTest extends BaseTest {
         homePage.clickSearchBtn();
         SearchResultPage resultPage= new SearchResultPage(driver.get());
         List<String> links = resultPage.getResultLinks();
-        SoftAssert softAssert = new SoftAssert();
-        for (int i = 1; i <= 5; i++) {
-            softAssert.assertTrue(links.get(i).contains("testautomationday.com"), "Expected: link contains \"testautomationday.com\", Actual: " + links.get(i));
+        boolean result = false;
+        for (int i = 0; i < 5; i++) {
+            if(links.get(i).contains("testautomationday.com")) {
+                result = true;
+                break;
+            }
         }
-        softAssert.assertAll();
+        assertTrue(result, "\"testautomationday.com\" domain present in first 5 search results");
     }
 }
