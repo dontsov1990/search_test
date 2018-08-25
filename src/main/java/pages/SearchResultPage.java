@@ -44,8 +44,7 @@ public class SearchResultPage extends BasePage {
                 page.click();
                 logger.info("Search result page number " + number + " clicked");
                 break;
-            } else
-                logger.info("Page number not found");
+            }
         }
     }
 }

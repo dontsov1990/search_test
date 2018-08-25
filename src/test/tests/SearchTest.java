@@ -23,8 +23,9 @@ public class SearchTest extends BaseTest {
         homePage.enterSearchText("automation");
         homePage.clickSearchBtn();
         boolean result = false;
-        for (int i = 2; i <=5; i++) {
+        for (int i = 1; i <=5; i++) {
             SearchResultPage resultPage = new SearchResultPage(driver.get());
+            resultPage.openPageByNumber(i);
             List<String> links = resultPage.getResultLinks();
             for (String link: links) {
                 if (link.contains("testautomationday.com")) {
@@ -32,7 +33,6 @@ public class SearchTest extends BaseTest {
                     break;
                 }
             }
-            resultPage.openPageByNumber(i);
         }
         assertTrue(result, "\"testautomationday.com\" domain present in links of first 5 search result pages");
     }
