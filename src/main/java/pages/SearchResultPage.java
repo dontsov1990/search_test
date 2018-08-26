@@ -42,7 +42,7 @@ public class SearchResultPage extends BasePage {
         for (WebElement page: pagination) {
             if (page.getAttribute("aria-label").equals("Page " + number)) {
                 page.click();
-                logger.info("Search result page number " + number + " clicked");
+                logger.info(LogHelper.getTestName() + "Search result page number " + number + " clicked");
                 break;
             }
         }

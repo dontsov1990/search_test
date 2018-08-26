@@ -1,7 +1,6 @@
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SearchResultPage;
-
 import java.util.List;
 import static org.testng.Assert.*;
 
@@ -24,7 +23,7 @@ public class SearchTest extends BaseTest {
         homePage.clickSearchBtn();
         SearchResultPage resultPage = new SearchResultPage(driver.get());
         boolean result = false;
-        for (int i = 1; i <=5; i++) {
+        for (int i = 1; i <= 5; i++) {
             resultPage.openPageByNumber(i);
             List<String> links = resultPage.getResultLinks();
             for (String link: links) {
